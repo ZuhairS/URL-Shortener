@@ -12,6 +12,7 @@ class User < ApplicationRecord
     primary_key: :id
 
   has_many :visited_urls,
+    -> { distinct },
     through: :visits_made,
     source: :visited_url
 
