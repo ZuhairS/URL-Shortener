@@ -14,6 +14,11 @@ class ShortenedUrl < ApplicationRecord
     foreign_key: :short_url_id,
     primary_key: :id
 
+  has_many :taggings,
+    class_name: "Tagging",
+    foreign_key: :short_url_id,
+    primary_key: :id
+
   validates :long_url, :short_url, presence: true, uniqueness: true
   validates :submitter, presence: true
 
